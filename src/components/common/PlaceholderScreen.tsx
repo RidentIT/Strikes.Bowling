@@ -1,7 +1,8 @@
 import { ArrowLeft } from 'lucide-react'
-import { motion } from 'motion/react'
-import { Link } from 'react-router-dom'
+import * as motion from 'motion/react-client'
+import Link from 'next/link'
 import { PageContainer } from '@/components/layout/PageContainer'
+import { accentStyle } from '@/lib/accent'
 import { ROUTES } from '@/lib/routes'
 import type { Destination } from '@/types/navigation'
 
@@ -11,12 +12,12 @@ interface PlaceholderScreenProps {
 
 /** Temporary screen for interfaces that are not built yet. */
 export function PlaceholderScreen({ destination }: PlaceholderScreenProps) {
-  const { title, description, icon: Icon, accentClassName } = destination
+  const { title, description, icon: Icon, accent } = destination
 
   return (
     <PageContainer>
       <Link
-        to={ROUTES.home}
+        href={ROUTES.home}
         className="inline-flex items-center gap-2 text-body-sm text-muted transition-colors hover:text-foreground"
       >
         <ArrowLeft className="size-4" />
@@ -27,9 +28,10 @@ export function PlaceholderScreen({ destination }: PlaceholderScreenProps) {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
+        style={accentStyle(accent)}
         className="mt-8 rounded-xl border border-border bg-surface p-8"
       >
-        <Icon className={`size-8 ${accentClassName}`} />
+        <Icon className="size-8 text-(--accent)" />
         <h1 className="mt-4">{title}</h1>
         <p className="mt-1 text-muted">{description}</p>
         <p className="mt-6 text-caption text-muted">Interface coming soon.</p>
