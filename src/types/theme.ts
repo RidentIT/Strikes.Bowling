@@ -1,8 +1,18 @@
-/** Theme colour tokens (from theme.css) usable as an accent. */
+/** Brand colour tokens (from theme.css) usable as an accent. */
 export type AccentColor =
-  | 'primary'
-  | 'brand-cyan'
+  | 'brand-rose'
+  | 'brand-crimson'
+  | 'brand-coral'
+  | 'brand-orange'
+  | 'brand-violet'
   | 'brand-purple'
-  | 'brand-yellow'
-  | 'brand-green'
-  | 'brand-red'
+  | 'brand-indigo'
+  | 'brand-blue'
+  | 'brand-cyan'
+  | 'brand-emerald'
+
+/** An accent and the colour its gradients run towards. */
+export interface Accent {
+  from: AccentColor
+  to: AccentColor
+}

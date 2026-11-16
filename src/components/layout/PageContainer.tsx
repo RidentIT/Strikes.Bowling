@@ -5,5 +5,5 @@ interface PageContainerProps {
 }
 
 export function PageContainer({ children }: PageContainerProps) {
-  return <main className="mx-auto w-full max-w-6xl px-6 py-8">{children}</main>
+  return <main className="mx-auto w-full max-w-6xl px-5 py-8 sm:px-8 lg:py-10">{children}</main>
 }

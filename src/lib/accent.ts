@@ -1,10 +1,13 @@
 import type { CSSProperties } from 'react'
-import type { AccentColor } from '@/types/theme'
+import type { Accent } from '@/types/theme'
 
 /**
- * Exposes an accent colour as `--accent`, so children can use static
- * utilities like `text-(--accent)` or `bg-(--accent)/10`.
+ * Exposes an accent as `--accent` and `--accent-to`, so children can use static
+ * utilities like `text-(--accent)` or `from-(--accent) to-(--accent-to)`.
  */
-export function accentStyle(accent: AccentColor): CSSProperties {
-  return { '--accent': `var(--color-${accent})` } as CSSProperties
+export function accentStyle({ from, to }: Accent): CSSProperties {
+  return {
+    '--accent': `var(--color-${from})`,
+    '--accent-to': `var(--color-${to})`,
+  } as CSSProperties
 }

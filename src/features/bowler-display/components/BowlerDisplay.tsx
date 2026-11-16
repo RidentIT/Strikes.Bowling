@@ -16,7 +16,7 @@ export function BowlerDisplay({ config }: BowlerDisplayProps) {
       </header>
 
       <div className="mt-8 grid flex-1 place-items-center rounded-xl border border-border bg-surface">
-        <p className="text-muted">
+        <p className="text-secondary">
           Scoreboard placeholder{showPlayerDetails && ' · player details enabled'}
         </p>
       </div>

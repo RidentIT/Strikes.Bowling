@@ -1,58 +1,65 @@
 import type { Variants } from 'motion/react'
+import type { Viewport } from 'next'
 import * as motion from 'motion/react-client'
 import { InterfaceTile } from '@/components/common/InterfaceTile'
+import { HeroArt } from '@/components/common/HeroArt'
 import { StrikesLogo } from '@/components/common/StrikesLogo'
+import { AmbientBackground } from '@/components/layout/AmbientBackground'
 import { PageContainer } from '@/components/layout/PageContainer'
-import { Badge } from '@/components/ui/Badge'
 import { DESTINATION_LIST } from '@/data/destinations'
 
-const PROTOTYPE_VERSION = 'v1.0'
+// The landing page sits on black; interface screens keep the navy theme background.
+export const viewport: Viewport = { themeColor: '#000000' }
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
 }
 
 const staggerTiles: Variants = {
-  visible: { transition: { staggerChildren: 0.06, delayChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.06, delayChildren: 0.2 } },
 }
 
 export default function HomePage() {
   return (
-    <div className="relative isolate min-h-dvh overflow-hidden">
-      {/* Soft blue wash echoing the centre's lane lighting. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-48 left-1/2 -z-10 h-112 w-4xl -translate-x-1/2 rounded-full bg-primary/15 blur-3xl"
-      />
+    <>
+      <AmbientBackground tone="black" />
 
       <PageContainer>
-        <header className="flex flex-wrap items-center justify-between gap-4">
-          <StrikesLogo
-            className="h-24 drop-shadow-[0_8px_24px_rgb(8_124_240_/_0.25)] sm:h-28 lg:h-36"
-            sizes="(min-width: 1024px) 188px, (min-width: 640px) 146px, 125px"
-          />
-          <Badge tone="success">Prototype {PROTOTYPE_VERSION}</Badge>
-        </header>
+        <div className="relative">
+          <HeroArt />
 
-        <motion.section initial="hidden" animate="visible" variants={fadeUp} className="mt-12 max-w-2xl">
-          <h1 className="text-display sm:text-[2.5rem]">Welcome to STRIKES</h1>
-          <p className="mt-2 text-h2 font-medium text-brand-cyan">Bowling Management Platform</p>
-          <p className="mt-4 text-muted">
-            Explore our integrated bowling experience, scoring displays and management interfaces.
-          </p>
-        </motion.section>
+          <header>
+            <StrikesLogo
+              className="h-24 drop-shadow-[0_12px_32px_rgb(244_63_94/0.22)] sm:h-28 lg:h-32"
+              sizes="(min-width: 1024px) 167px, (min-width: 640px) 146px, 125px"
+            />
+          </header>
 
-        <hr className="my-10 border-border" />
+          <motion.section
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="mt-6"
+          >
+            <h1 className="text-hero">
+              Welcome to
+              <br />
+              <span className="text-gradient-brand inline-block pb-1">STRIKES</span>
+            </h1>
+          </motion.section>
+        </div>
 
-        <section aria-labelledby="interfaces-heading">
-          <h2 id="interfaces-heading">Explore Interfaces</h2>
+        <section aria-labelledby="interfaces-heading" className="mt-8 sm:mt-10">
+          <h2 id="interfaces-heading" className="border-b border-white/6 pb-4">
+            Explore Interfaces
+          </h2>
 
           <motion.ul
             initial="hidden"
             animate="visible"
             variants={staggerTiles}
-            className="mt-6 grid gap-5 sm:grid-cols-2"
+            className="mt-6 grid gap-5 md:grid-cols-2 lg:gap-6"
           >
             {DESTINATION_LIST.map((destination, index) => (
               <motion.li key={destination.id} variants={fadeUp}>
@@ -62,6 +69,6 @@ export default function HomePage() {
           </motion.ul>
         </section>
       </PageContainer>
-    </div>
+    </>
   )
 }

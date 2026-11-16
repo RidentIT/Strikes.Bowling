@@ -3,10 +3,10 @@ import type { ReactNode } from 'react'
 type BadgeTone = 'success' | 'info' | 'warning' | 'danger'
 
 const TONE_CLASSES: Record<BadgeTone, string> = {
-  success: 'border-brand-green/25 bg-brand-green/10 text-brand-green',
+  success: 'border-brand-emerald/25 bg-brand-emerald/10 text-brand-emerald',
   info: 'border-brand-cyan/25 bg-brand-cyan/10 text-brand-cyan',
-  warning: 'border-brand-yellow/25 bg-brand-yellow/10 text-brand-yellow',
-  danger: 'border-brand-red/25 bg-brand-red/10 text-brand-red',
+  warning: 'border-brand-orange/25 bg-brand-orange/10 text-brand-orange',
+  danger: 'border-brand-rose/25 bg-brand-rose/10 text-brand-rose',
 }
 
 interface BadgeProps {

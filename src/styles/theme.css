@@ -1,8 +1,8 @@
 /*
- * STRIKES design tokens — "Premium Neon Dark".
+ * STRIKES design tokens — "Premium Neon Entertainment".
  *
  * `@theme static` makes every token both a Tailwind utility (bg-surface,
- * text-brand-cyan, text-h1, …) and an always-emitted CSS variable
+ * text-brand-rose, text-h1, …) and an always-emitted CSS variable
  * (var(--color-surface)) for inline styles and Motion animations.
  */
 
@@ -13,6 +13,11 @@
 
 @theme static {
   /* Typography */
+  --text-hero: clamp(2.75rem, 1.5rem + 4.6vw, 4.75rem);
+  --text-hero--line-height: 1;
+  --text-hero--letter-spacing: -0.04em;
+  --text-hero--font-weight: 800;
+
   --text-display: 2rem;
   --text-display--line-height: 1.2;
   --text-display--letter-spacing: -0.02em;
@@ -32,32 +37,67 @@
   --text-h3--line-height: 1.4;
   --text-h3--font-weight: 600;
 
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.6;
+
   --text-body: 1rem;
   --text-body--line-height: 1.6;
 
   --text-body-sm: 0.875rem;
-  --text-body-sm--line-height: 1.5;
+  --text-body-sm--line-height: 1.55;
 
   --text-caption: 0.8125rem;
   --text-caption--line-height: 1.4;
   --text-caption--letter-spacing: 0.01em;
 
-  /* Surfaces */
-  --color-background: #071426;
-  --color-surface: #10243d;
-  --color-surface-hover: #15304f;
-  --color-border: #1e3a5f;
+  /* Small uppercase labels (pair with `uppercase`). */
+  --text-eyebrow: 0.6875rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.18em;
+  --text-eyebrow--font-weight: 600;
+
+  /* Surfaces, darkest to lightest */
+  --color-background: #090b18;
+  --color-background-raised: #101426;
+  --color-surface: #14182a;
+  --color-surface-raised: #1b2035;
+  --color-border: #262b40;
+
+  /* Neutral near-black surfaces for the black landing page */
+  --color-surface-neutral: #0f0f12;
+  --color-surface-neutral-raised: #17171c;
+  --color-border-neutral: #25252b;
 
   /* Text */
-  --color-foreground: #f4f7fc;
-  --color-muted: #8292a8;
+  --color-foreground: #f8fafc;
+  --color-secondary: #a1a1b5;
+  --color-muted: #737b94;
 
-  /* Brand — centre lighting (blue/cyan) + logo colours */
-  --color-primary: #087cf0;
-  --color-primary-hover: #2a8ff5;
-  --color-brand-cyan: #19c8f5;
+  /* Actions */
+  --color-primary: #e11d48;
+  --color-primary-hover: #be123c;
+
+  /* Brand accents */
+  --color-brand-rose: #f43f5e;
+  --color-brand-crimson: #e11d48;
+  --color-brand-coral: #fb7185;
+  --color-brand-orange: #f97316;
+  --color-brand-violet: #8b5cf6;
   --color-brand-purple: #a855f7;
-  --color-brand-yellow: #ffd92e;
-  --color-brand-green: #20c982;
-  --color-brand-red: #ff4b45;
+  --color-brand-indigo: #6366f1;
+  --color-brand-blue: #2563eb;
+  --color-brand-cyan: #06b6d4;
+  --color-brand-emerald: #10b981;
+}
+
+/* Signature gradients. Use sparingly: hero accents, lighting and selected details. */
+:root {
+  --gradient-brand: linear-gradient(
+    100deg,
+    var(--color-brand-coral),
+    var(--color-brand-rose) 38%,
+    var(--color-brand-violet)
+  );
+  --gradient-rose: linear-gradient(135deg, var(--color-brand-rose), var(--color-brand-crimson));
+  --gradient-violet-blue: linear-gradient(135deg, var(--color-brand-violet), var(--color-brand-blue));
 }
