@@ -1,0 +1,59 @@
+/*
+ * STRIKES design tokens — "Premium Neon Dark".
+ *
+ * `@theme static` makes every token both a Tailwind utility (bg-surface,
+ * text-brand-cyan, text-h1, …) and an always-emitted CSS variable
+ * (var(--color-surface)) for inline styles and Motion animations.
+ */
+@theme static {
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --text-display: 2rem;
+  --text-display--line-height: 1.2;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 700;
+
+  --text-h1: 1.75rem;
+  --text-h1--line-height: 1.25;
+  --text-h1--letter-spacing: -0.015em;
+  --text-h1--font-weight: 700;
+
+  --text-h2: 1.25rem;
+  --text-h2--line-height: 1.35;
+  --text-h2--letter-spacing: -0.01em;
+  --text-h2--font-weight: 600;
+
+  --text-h3: 1.125rem;
+  --text-h3--line-height: 1.4;
+  --text-h3--font-weight: 600;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.5;
+
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: 0.01em;
+
+  /* Surfaces */
+  --color-background: #071426;
+  --color-surface: #10243d;
+  --color-surface-hover: #15304f;
+  --color-border: #1e3a5f;
+
+  /* Text */
+  --color-foreground: #f4f7fc;
+  --color-muted: #8292a8;
+
+  /* Brand — centre lighting (blue/cyan) + logo colours */
+  --color-primary: #087cf0;
+  --color-primary-hover: #2a8ff5;
+  --color-brand-cyan: #19c8f5;
+  --color-brand-purple: #a855f7;
+  --color-brand-yellow: #ffd92e;
+  --color-brand-green: #20c982;
+  --color-brand-red: #ff4b45;
+}

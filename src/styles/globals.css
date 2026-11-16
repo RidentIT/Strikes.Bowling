@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply min-h-dvh bg-background font-sans text-body text-foreground antialiased;
+  }
+
+  h1 {
+    @apply text-h1;
+  }
+
+  h2 {
+    @apply text-h2;
+  }
+
+  h3 {
+    @apply text-h3;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-cyan;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+  }
+}
