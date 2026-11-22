@@ -79,3 +79,48 @@
   background-clip: text;
   color: transparent;
 }
+
+/*
+ * Bowler Display scaling. 1 design pixel (--u) is the viewport-fitted share of a
+ * 1920 x 1200 reference screen, so one layout fits any resolution or aspect
+ * ratio. `--type-scale` lets a display mode enlarge text only.
+ */
+.bowling-display {
+  --u: min(100vw / 1920, 100dvh / 1200);
+}
+
+@utility u-text-* {
+  font-size: calc(var(--u) * var(--type-scale, 1) * --value(number));
+}
+
+@utility u-h-* {
+  height: calc(var(--u) * --value(number));
+}
+
+@utility u-w-* {
+  width: calc(var(--u) * --value(number));
+}
+
+@utility u-p-* {
+  padding: calc(var(--u) * --value(number));
+}
+
+@utility u-px-* {
+  padding-inline: calc(var(--u) * --value(number));
+}
+
+@utility u-py-* {
+  padding-block: calc(var(--u) * --value(number));
+}
+
+@utility u-gap-* {
+  gap: calc(var(--u) * --value(number));
+}
+
+@utility u-mt-* {
+  margin-top: calc(var(--u) * --value(number));
+}
+
+@utility u-rounded-* {
+  border-radius: calc(var(--u) * --value(number));
+}

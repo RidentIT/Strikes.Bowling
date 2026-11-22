@@ -1,1 +1,7 @@
-export { FrontDeskPage } from './pages/FrontDeskPage'
+export { FrontDeskShell } from './components/shell/FrontDeskShell'
+export { ActiveGamesPage } from './pages/ActiveGamesPage'
+export { DashboardPage } from './pages/DashboardPage'
+export { GameHistoryPage } from './pages/GameHistoryPage'
+export { LaneManagementPage } from './pages/LaneManagementPage'
+export { NewGamePage } from './pages/NewGamePage'
+export type { FrontDeskState, Game, Lane, LaneStatus, Player } from './types/front-desk.types'

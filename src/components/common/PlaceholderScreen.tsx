@@ -1,12 +1,10 @@
-import { ArrowLeft } from 'lucide-react'
 import * as motion from 'motion/react-client'
-import Link from 'next/link'
 import { AmbientBackground } from '@/components/layout/AmbientBackground'
 import { PageContainer } from '@/components/layout/PageContainer'
 import { accentStyle } from '@/lib/accent'
-import { ROUTES } from '@/lib/routes'
 import type { Destination } from '@/types/navigation'
 import { AccentIcon } from './AccentIcon'
+import { BackToHome } from './BackToHome'
 
 interface PlaceholderScreenProps {
   destination: Destination
@@ -20,13 +18,7 @@ export function PlaceholderScreen({ destination }: PlaceholderScreenProps) {
     <>
       <AmbientBackground />
       <PageContainer>
-        <Link
-          href={ROUTES.home}
-          className="inline-flex items-center gap-2 text-body-sm text-secondary transition-colors hover:text-foreground"
-        >
-          <ArrowLeft className="size-4" />
-          Back to STRIKES
-        </Link>
+        <BackToHome />
 
         <motion.section
           initial={{ opacity: 0, y: 8 }}
